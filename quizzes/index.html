@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Hello, world!</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+        <style>
+
+            body {
+                padding-top: 40px;
+                padding-bottom: 40px;
+                background-color: #eee;
+            }
+
+            .form-signin {
+                max-width: 330px;
+                padding: 15px;
+                margin: 0 auto;
+            }
+            .form-signin .form-signin-heading,
+            .form-signin .checkbox {
+                margin-bottom: 10px;
+            }
+            .form-signin .checkbox {
+                font-weight: 400;
+            }
+            .form-signin .form-control {
+                position: relative;
+                box-sizing: border-box;
+                height: auto;
+                padding: 10px;
+                font-size: 16px;
+            }
+            .form-signin .form-control:focus {
+                z-index: 2;
+            }
+            .form-signin input[type="email"] {
+                margin-bottom: -1px;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+            .form-signin input[type="password"] {
+                margin-bottom: 10px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+        </style>
+
+    </head>
+    <body>
+
+
+
+        <div class="container">
+
+            <form class="form-signin"  id="form">
+                <h2 class="form-signin-heading">Please sign up</h2>
+
+                <label for="inputName" class="sr-only">Name</label>
+                <input type="name" id="inputName" name="name" class="form-control" placeholder="Name" required autofocus>
+
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email"  name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password"  name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+                <button class="btn btn-lg btn-primary btn-block" onclick="save(); return false;" type="button">Sign Up</button>
+            </form>
+
+            <div  style="display:none;" id="success">Welcome!</div>
+
+        </div> <!-- /container -->
+
+        <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+        <script>
+
+                    function save() {
+
+
+                //        $("#form").hide();
+
+console.log( $("#form").serialize());
+
+                        $.post('save.php', $("#form").serialize()).done(function (data) {
+
+                            console.log(data);
+                            $("#success").show();
+
+                        });
+
+
+                    }
+
+        </script>
+
+    </body>
+</html>
